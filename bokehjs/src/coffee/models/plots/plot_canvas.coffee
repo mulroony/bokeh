@@ -470,6 +470,7 @@ export class PlotCanvasView extends DOMView
     @listenTo(@model.plot.toolbar, 'change:tools', () => @build_levels(); @build_tools())
     @listenTo(@model.plot, 'change', @request_render)
     @listenTo(@solver, 'layout_update', () => @request_render())
+    ###
     @listenTo(@solver, 'layout_update', () =>
       @model.plot.setv({
         inner_width: Math.round(@frame.width)
@@ -478,6 +479,7 @@ export class PlotCanvasView extends DOMView
         layout_height: Math.round(@canvas.height)
       }, {no_change: true})
     )
+    ###
     @listenTo(@solver, 'resize', () => @_on_resize())
     @listenTo(@canvas, 'change:pixel_ratio', () => @request_render())
 
